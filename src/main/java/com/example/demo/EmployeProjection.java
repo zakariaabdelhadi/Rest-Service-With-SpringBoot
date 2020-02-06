@@ -6,10 +6,10 @@ import org.springframework.data.rest.core.config.Projection;
 //cela sera utiliser  par la suite dans l uri d'acee au service concerné 
 //(localhost/....../etudiants?projection=projection1)
 
-@Projection(name="projection1",types= {Etudiant.class})
-public interface EtudiantProjection {
+@Projection(name="proj1",types= {Employe.class})
+public interface EmployeProjection {
 	
 	public String getNom();
-	public Formation getFormation();
+	public  String getPrenom();
 
 }

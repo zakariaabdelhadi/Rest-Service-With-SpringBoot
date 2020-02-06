@@ -12,25 +12,21 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Formation {
-	
+
+public class Departement {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nom;
-	
-	private int duree;
-	@OneToMany(mappedBy = "formation")
-	private Collection<Etudiant> etudiants;
-	public Formation(Long id, String nom,  int duree, Collection<Etudiant> etudiants) {
+	public Departement() {
+		super();
+	}
+	@OneToMany(mappedBy = "dept")
+	private Collection<Employe> listEmp;
+	public Departement(Long id, String nom, Collection<Employe> listEmp) {
 		super();
 		this.id = id;
 		this.nom = nom;
-	
-		this.duree = duree;
-		this.etudiants = etudiants;
-	}
-	public Formation() {
-		super();
+		this.listEmp = listEmp;
 	}
 	public Long getId() {
 		return id;
@@ -44,19 +40,11 @@ public class Formation {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	
-	public int getDuree() {
-		return duree;
+	public Collection<Employe> getListEmp() {
+		return listEmp;
 	}
-	public void setDuree(int duree) {
-		this.duree = duree;
+	public void setListEmp(Collection<Employe> listEmp) {
+		this.listEmp = listEmp;
 	}
-	public Collection<Etudiant> getEtudiants() {
-		return etudiants;
-	}
-	public void setEtudiants(Collection<Etudiant> etudiants) {
-		this.etudiants = etudiants;
-	}
-	
 
 }
